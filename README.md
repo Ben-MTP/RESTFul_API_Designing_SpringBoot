@@ -22,7 +22,7 @@ spring.jpa.properties.hibernate.current_session_context_class
 
 * Tạo CRUD với RESTful API với Spring Boot và MySQL, Hibernate:
 
-------Bài 26----
+#------Bài 26----
 Cấu hình sao cho project có thể loading được hibernate lên
 Hibernate thực chất là một framwork hỗ trợ cho việc làm việc với Database dễ dàng và thuận tiện hơn.
 - Nội dung 1:
@@ -32,9 +32,6 @@ Hibernate thực chất là một framwork hỗ trợ cho việc làm việc v�
 	
 - Nội dung 1:
 	Add thêm một vài annotation vào file: DemoApplication.java
-	
-- Nội dung 1:
-- Nội dung 1:
-- Nội dung 1:
-- Nội dung 1:
+Kết thúc bài 26: Hỗ trợ cấu hình có thể kết nối đến Database của MySQL một cách thành công, cấu hình khá nhiều Annotation trong project.
+
 
