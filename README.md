@@ -42,5 +42,15 @@ Hibernate thực chất là một framwork hỗ trợ cho việc làm việc v�
 - Hibernate sẽ làm việc như một ORM framework thôi, không có gì cả
 
 
+#------Bai 28------
+- Nội dung tập trung về các phần code của các layer như DAO, Service, REST controler.
+- @Repository
+- Nhúng session factory -> session
+
+
+#-----Bai 29 -----
+- Test chức năng CURD trên ứng dụng
+
+
 
 

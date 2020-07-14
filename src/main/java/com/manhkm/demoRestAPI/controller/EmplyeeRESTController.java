@@ -17,6 +17,7 @@ import com.manhkm.demoRestAPI.entities.Employee;
 @RestController
 @RequestMapping("/rest")
 public class EmplyeeRESTController {
+	
 	@Autowired
 	private EmployeeService employeeService;
 	
@@ -24,10 +25,10 @@ public class EmplyeeRESTController {
 	 * List all of employees
 	 */
 	@RequestMapping(value = "/employees",
-			method = RequestMethod.GET
-//			produces = {
-//					MediaType.APPLICATION_JSON_VALUE,
-//					MediaType.APPLICATION_XML_VALUE}
+			method = RequestMethod.GET,
+			produces = {
+					MediaType.APPLICATION_JSON_VALUE,
+					MediaType.APPLICATION_XML_VALUE}
 	)
 	
 	@ResponseBody
@@ -48,7 +49,7 @@ public class EmplyeeRESTController {
 					MediaType.APPLICATION_XML_VALUE
 					})
 	@ResponseBody
-	public Employee getEmployee(@PathVariable("empId") Long empId) {
+	public Employee getEmployee(@PathVariable("empId") Integer empId) {
 		return employeeService.getEmployee(empId);
 	}
 	
@@ -99,7 +100,7 @@ public class EmplyeeRESTController {
 					MediaType.APPLICATION_XML_VALUE
 			})
 	@ResponseBody
-	public String deleteEmpoyee(@PathVariable("empId") Long empId) {
+	public String deleteEmpoyee(@PathVariable("empId") Integer empId) {
 		System.out.println("(Service side) Deleting employee with id: " + empId);
 		employeeService.deleteEmployee(empId);
 		return "delete employee successful";
