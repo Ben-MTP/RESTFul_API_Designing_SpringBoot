@@ -1,23 +1,37 @@
 package com.manhkm.demoRestAPI.entities;
 
-public class Employee {
-	private Long empId;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity   //support identification is Entity
+@Table(name="employees")
+public class Employee implements java.io.Serializable{
+	private static final GenerationType IDENTITY = null;
+	private Integer empId;
 	private String empNo;
 	private String empName;
 	
 	public Employee() {
 		super();
 	}
-	public Employee(Long empId, String empNo, String empName) {
+	public Employee(Integer empId, String empNo, String empName) {
 		super();
 		this.empId = empId;
 		this.empNo = empNo;
 		this.empName = empName;
 	}
-	public Long getEmpId() {
+	
+	@Id
+	//@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "empId", unique = true, nullable = false)
+	public Integer getEmpId() {
 		return empId;
 	}
-	public void setEmpId(Long empId) {
+	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
 	public String getEmpNo() {

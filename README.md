@@ -32,6 +32,15 @@ Hibernate thực chất là một framwork hỗ trợ cho việc làm việc v�
 	
 - Nội dung 1:
 	Add thêm một vài annotation vào file: DemoApplication.java
-Kết thúc bài 26: Hỗ trợ cấu hình có thể kết nối đến Database của MySQL một cách thành công, cấu hình khá nhiều Annotation trong project.
+- Kết thúc bài 26: Hỗ trợ cấu hình có thể kết nối đến Database của MySQL một cách thành công, cấu hình khá nhiều Annotation trong project.
+
+#------Bài 27-----
+- Cách mapping một class Entities đến một table, những trường thuộc database
+- Mục đích map sao cho các trường của một thực thế trong project nhận tương ứng với các trường trong Database.
+- cần thêm 2 annotation: @Entities và @Table
+- Những annotation biểu diễn trên các cột
+- Hibernate sẽ làm việc như một ORM framework thôi, không có gì cả
+
+
 
 
