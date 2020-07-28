@@ -22,8 +22,8 @@ public class EmployeeDao {
 	private static void initEmps() {
 		// TODO Auto-generated method stub
 		Employee emp1 = new Employee(1L, "CODE001", "ManhKM");
-		Employee emp2 = new Employee(2L, "CODE002", "ThangLV");
-		Employee emp3 = new Employee(3L, "CODE003", "AnhLD");
+		Employee emp2 = new Employee(2L, "CODE002", "NhanVien01");
+		Employee emp3 = new Employee(3L, "CODE003", "NhanVien02");
 		
 		empMap.put(emp1.getEmpId(), emp1);
 		empMap.put(emp2.getEmpId(), emp2);
