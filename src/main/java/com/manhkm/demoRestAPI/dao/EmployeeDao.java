@@ -7,14 +7,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.manhkm.demoRestAPI.entities.Employee;
 
 @Repository
 public class EmployeeDao {
-	private static final Map<Long, Employee> empMap = new HashMap<Long, Employee>(); //--> import 3 lib
 	
+<<<<<<< HEAD
 	//started -> call function initEmps alway?
 	static {
 		initEmps();
@@ -41,42 +44,48 @@ public class EmployeeDao {
 		}
 		return max;
 	}
+=======
+	@Autowired
+	private SessionFactory sessionFactory;
+>>>>>>> 7554e42c7938261f807e3fa68aa8f0bf4f72d80e
 	
 	//function get infomation by empId
-	public Employee getEmployee(Long empId) {
-		return empMap.get(empId);
+	public Employee getEmployee(Integer empId) {
+		Session session = sessionFactory.getCurrentSession();
+		Employee emp = (Employee) session.get(Employee.class, empId);
+		return emp;
 	}
 	
 	//function add new employee in HashMap
 	public Employee addEmployee(Employee empForm) {
-		Long empId = this.getMaxEmpId() + 1;
-		empForm.setEmpId(empId);
-		
-		empMap.put(empForm.getEmpId(), empForm);
+		Session session = sessionFactory.getCurrentSession();
+		session.save(empForm);
 		return empForm;
 	}
 	
 	//function update information employee in HashMap;
-	public Employee updateEmployee(Employee empForm) {
-		Employee empUpdate = this.getEmployee(empForm.getEmpId());
-		if(empUpdate != null) {
-			empUpdate.setEmpNo(empForm.getEmpNo());
-			empUpdate.setEmpName(empForm.getEmpName());
-		}
-		return empUpdate;
+	public Employee updateEmployee(Employee form) {
+		Session session = sessionFactory.getCurrentSession();
+		Employee emp = (Employee) session.get(Employee.class,  form.getEmpId());
+		emp.setEmpName(form.getEmpName());
+		emp.setEmpNo(form.getEmpNo());
+		session.update(emp);
+		
+		return emp;
 	}
 	
 	//function delete employee in HashMap:
-	public void deleteEmployee(Long empId) {
-		empMap.remove(empId);
+	public void deleteEmployee(Integer empId) {
+		Session session = sessionFactory.getCurrentSession();
+		Employee emp = (Employee) session.get(Employee.class, empId);
+		session.delete(emp);
 	}
 	
 	//function get AllEmployees():
 	public List<Employee> getAllEmployee(){
-		Collection<Employee> c = empMap.values();
-		List<Employee> list = new ArrayList<Employee>();
-		list.addAll(c);
-		
-		return list;
+		Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Employee> listEmployee = (List<Employee>) session.createQuery(" FORM " + Employee.class.getName()).list();
+		return listEmployee;
 	}
 }
